@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Higher level interface to Net::Amazon::DyamoDB::Lite",
    "author" : [
       "Eric Johnson <eric.git@iijo.org>"
    ],
@@ -42,6 +42,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Net::Amazon::DynamoDB::Lite" : "0.03",
             "perl" : "5.008001"
          }
       },
@@ -52,5 +53,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kablamo/Net-Amazon-DynamoDB-Table/issues"
+      },
+      "homepage" : "https://github.com/kablamo/Net-Amazon-DynamoDB-Table",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/kablamo/Net-Amazon-DynamoDB-Table.git",
+         "web" : "https://github.com/kablamo/Net-Amazon-DynamoDB-Table"
+      }
+   },
    "version" : "0.01"
 }
