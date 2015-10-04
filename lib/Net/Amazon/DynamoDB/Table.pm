@@ -61,7 +61,6 @@ sub put {
     $args{TableName} ||= $self->table;
     $args{Item}        = $self->inflate_item($args{Item});
 
-    use DDP; p %args;
     return $self->dynamodb->put_item(\%args);
 }
 
@@ -132,7 +131,7 @@ sub inflate_attribute_value {
         return { L => [@vals] };
     }
     elsif (looks_like_number $thing) {
-        return { N => $thing };
+        return { N => "$thing" };
     }
     elsif (ref($thing) eq 'SCALAR') {
         return { B => MIME::Base64::encode_base64($$thing, '') };
