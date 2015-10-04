@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More;
+use Test::More skip_all => 'third party tests';
 use Test::Deep;
 
 use Net::Amazon::DynamoDB::Table;
@@ -9,8 +9,8 @@ my $table = Net::Amazon::DynamoDB::Table->new(
     region     => 'us-west-1',
     table      => 'test',
     hash_key   => 'super',
-    access_key => $ENV{DDG_AWS_S3_ACCESS_KEY},
-    secret_key => $ENV{DDG_AWS_S3_SECRET_ACCESS_KEY},
+    access_key => $ENV{AWS_ACCESS_KEY},
+    secret_key => $ENV{AWS_SECRET_KEY},
 );
 
 my $deflated = {
