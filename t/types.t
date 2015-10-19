@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More skip_all => 'third party tests';
+use Test::More;# skip_all => 'third party tests';
 use Test::Deep;
 
 use Net::Amazon::DynamoDB::Table;
@@ -19,6 +19,7 @@ my $deflated = {
     c => 23.5,
     e => { a => 23.5, b => "pants" },
     f => [ "pants", 23.5 ],
+    g => "23",
 };
 
 my $inflated = {
@@ -37,6 +38,7 @@ my $inflated = {
             { N => 23.5    },
         ],
     },
+    g => { S => "23" },
 };
 
 my $out1 = $table->inflate_item($deflated);
