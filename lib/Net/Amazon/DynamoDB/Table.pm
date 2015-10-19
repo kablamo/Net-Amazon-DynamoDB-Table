@@ -6,7 +6,6 @@ use JSON::XS;
 use Moo;
 use Try::Tiny;
 use Test::Deep::NoTest;
-use Scalar::Util qw/looks_like_number/;
 
 our $VERSION="0.01";
 
@@ -130,15 +129,23 @@ sub inflate_attribute_value {
         push @vals, $self->inflate_attribute_value($_) for @$thing;
         return { L => [@vals] };
     }
-    elsif (looks_like_number $thing) {
-        return { N => "$thing" };
-    }
     elsif (ref($thing) eq 'SCALAR') {
         return { B => MIME::Base64::encode_base64($$thing, '') };
+    }
+    elsif ($self->isa_number($thing)) {
+        return { N => "$thing" };
     }
     else {
         return { S => $thing };
     }
+}
+
+sub isa_number {
+    my ($self, $thing) = @_;
+    return 1 if B::svref_2object(\$thing)->FLAGS & (B::SVp_IOK | B::SVp_NOK)
+        && 0 + $thing eq $thing
+        && $thing * 0 == 0;
+    return 0;
 }
 
 sub scan {
