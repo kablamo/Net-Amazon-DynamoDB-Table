@@ -16,6 +16,7 @@ has dynamodb    => (is => 'lazy');
 has region      => (is => 'rw', required => 1);
 has access_key  => (is => 'rw', lazy => 1, builder => 1);
 has secret_key  => (is => 'rw', lazy => 1, builder => 1);
+has timeout     => (is => 'rw', default => 5);
 
 sub _build_access_key { $ENV{AWS_ACCESS_KEY} }
 sub _build_secret_key { $ENV{AWS_SECRET_KEY} }
@@ -26,6 +27,7 @@ sub _build_dynamodb {
         region     => $self->region,
         access_key => $self->access_key,
         secret_key => $self->secret_key,
+        timeout    => $self->timeout,
     );
 }
 
