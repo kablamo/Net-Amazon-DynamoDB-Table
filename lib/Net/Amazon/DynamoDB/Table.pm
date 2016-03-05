@@ -24,10 +24,10 @@ sub _build_secret_key { $ENV{AWS_SECRET_KEY} }
 sub _build_dynamodb {
     my $self = shift;
     Net::Amazon::DynamoDB::Lite->new(
-        region     => $self->region,
-        access_key => $self->access_key,
-        secret_key => $self->secret_key,
-        timeout    => $self->timeout,
+        region             => $self->region,
+        access_key         => $self->access_key,
+        secret_key         => $self->secret_key,
+        connection_timeout => $self->timeout,
     );
 }
 
