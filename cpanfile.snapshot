@@ -261,6 +261,15 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  MIME-Base64-3.15
+    pathname: G/GA/GAAS/MIME-Base64-3.15.tar.gz
+    provides:
+      MIME::Base64 3.15
+      MIME::QuotedPrint 3.13
+    requirements:
+      ExtUtils::MakeMaker 0
+      XSLoader 0
+      perl 5.004
   Mixin-Event-Dispatch-2.000
     pathname: T/TE/TEAM/Mixin-Event-Dispatch-2.000.tar.gz
     provides:
@@ -348,14 +357,15 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test 0
       perl 5.006
-  Net-Amazon-DynamoDB-Lite-0.03
-    pathname: S/SH/SHIBUYA/Net-Amazon-DynamoDB-Lite-0.03.tar.gz
+  Net-Amazon-DynamoDB-Lite-0.05
+    pathname: S/SH/SHIBUYA/Net-Amazon-DynamoDB-Lite-0.05.tar.gz
     provides:
-      Net::Amazon::DynamoDB::Lite 0.03
+      Net::Amazon::DynamoDB::Lite 0.05
     requirements:
       Furl 3.07
       HTTP::Message 6.06
       JSON 2.90
+      MIME::Base64 3.15
       Module::Build::Tiny 0.035
       Moo 2.000001
       Pod::Markdown 2.002
