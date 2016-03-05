@@ -7,7 +7,7 @@ use Moo;
 use Try::Tiny;
 use Test::Deep::NoTest;
 
-our $VERSION="0.02";
+our $VERSION="0.03";
 
 has table       => (is => 'rw', required => 1);
 has hash_key    => (is => 'rw', required => 1);

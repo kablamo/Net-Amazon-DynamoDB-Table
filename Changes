@@ -2,6 +2,9 @@ Revision history for Perl extension Net-Amazon-DynamoDB-Table
 
 {{$NEXT}}
 
+0.03 2016-03-05T02:09:55Z
+    - bug fix to make timeout attribute actually work this time
+
 0.02 2016-03-05T01:33:06Z
     - added a timeout attribute
     - now require N::A::DynamoDB::Lite v0.05 (was v0.03)
