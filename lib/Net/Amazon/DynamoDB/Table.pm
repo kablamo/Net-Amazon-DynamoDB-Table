@@ -1,11 +1,7 @@
 package Net::Amazon::DynamoDB::Table;
 use Net::Amazon::DynamoDB::Lite;
 use Carp qw/cluck confess carp croak/;
-use DDP;
-use JSON::XS;
 use Moo;
-use Try::Tiny;
-use Test::Deep::NoTest;
 
 our $VERSION="0.03";
 
