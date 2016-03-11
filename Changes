@@ -2,6 +2,9 @@ Revision history for Perl extension Net-Amazon-DynamoDB-Table
 
 {{$NEXT}}
 
+0.04 2016-03-11T13:42:59Z
+    - rm unneeded dependencies
+
 0.03 2016-03-05T02:09:55Z
     - bug fix to make timeout attribute actually work this time
 
