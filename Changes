@@ -2,6 +2,10 @@ Revision history for Perl extension Net-Amazon-DynamoDB-Table
 
 {{$NEXT}}
 
+0.05 2016-04-23T01:56:26Z
+    - Instead of attempting to put an item and getting an error from AWS,
+      remove all keys with a value of empty list, empty hash, or undef.
+
 0.04 2016-03-11T13:42:59Z
     - rm unneeded dependencies
 

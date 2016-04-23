@@ -3,7 +3,7 @@ use Net::Amazon::DynamoDB::Lite;
 use Carp qw/cluck confess carp croak/;
 use Moo;
 
-our $VERSION="0.04";
+our $VERSION="0.05";
 
 has table       => (is => 'rw', required => 1);
 has hash_key    => (is => 'rw', required => 1);
