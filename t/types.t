@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More skip_all => 'third party tests';
+use Test::More;
 use Test::Deep;
 
 use Net::Amazon::DynamoDB::Table;
@@ -9,8 +9,8 @@ my $table = Net::Amazon::DynamoDB::Table->new(
     region     => 'us-west-1',
     table      => 'test',
     hash_key   => 'super',
-    access_key => $ENV{AWS_ACCESS_KEY},
-    secret_key => $ENV{AWS_SECRET_KEY},
+    access_key => 'woof',
+    secret_key => 'woof',
 );
 
 my $deflated = {
@@ -20,6 +20,9 @@ my $deflated = {
     e => { a => 23.5, b => "pants" },
     f => [ "pants", 23.5 ],
     g => "23",
+    h => {},
+    i => { a => [] },
+    j => undef,
 };
 
 my $inflated = {

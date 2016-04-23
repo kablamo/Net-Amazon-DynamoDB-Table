@@ -90,7 +90,7 @@ sub inflate_item {
 
     for my $attr (keys %$item) {
         my $val = $item->{$attr};
-        $new{$attr} = $self->inflate_attribute_value($val);
+        $new{$attr} = $self->inflate_attribute_value($val) || next;
     }
 
     return \%new;
@@ -118,22 +118,28 @@ sub inflate_attribute_value {
     if (ref($thing) eq 'HASH') {
         my %vals;
         for my $key (keys %$thing) {
-            $vals{$key} = $self->inflate_attribute_value($thing->{$key});
+            $vals{$key} = $self->inflate_attribute_value($thing->{$key}) || next;
         }
+        return unless keys %vals;
         return { M => \%vals };
     }
     elsif (ref($thing) eq 'ARRAY') {
         my @vals;
-        push @vals, $self->inflate_attribute_value($_) for @$thing;
+        for my $t (@$thing) {
+            push @vals, $self->inflate_attribute_value($t) || next;
+        }
+        return unless scalar @vals;
         return { L => [@vals] };
     }
     elsif (ref($thing) eq 'SCALAR') {
+        return unless $$thing;
         return { B => MIME::Base64::encode_base64($$thing, '') };
     }
     elsif ($self->isa_number($thing)) {
         return { N => "$thing" };
     }
     else {
+        return unless $thing;
         return { S => $thing };
     }
 }
